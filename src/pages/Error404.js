@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-const Login = () => {
+const Error404 = () => {
     return (
         <div>
-            <p>LOGIN</p>
+            <p>Error404</p>
         </div>
     );
-  }
-  
-  export default Login
+}
+
+export default Error404
