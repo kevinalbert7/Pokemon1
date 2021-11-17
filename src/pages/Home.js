@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-// import Button from '../components/Button'
+import { Flex, Button, Heading } from '@chakra-ui/react'
 
 const Home = () => {
     // console.log(useState)
@@ -30,17 +30,22 @@ const Home = () => {
     
     return (
         <>
-            <p>HOME</p>
-            <button onClick={() => handleChangePokemon()}>Button</button>
-            { pokemon &&
-            <div>
-                <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
-                <p>{pokemon.name}</p>
-                <p>{pokemon.height}</p>
-                <p>{pokemon.weight}</p>
-                <p>{pokemon.types.map(element => element.type.name)}</p>
-            </div>
-            }
+        <Flex alignItems="center" background="gray.800" justifyContent="center">
+            <Flex mb={4} width="45vh" height="80vh" textColor="white" fontSize="20px" direction="column" border="1px" borderColor="white" background="gray.800" p={12} rounded={6}> 
+                    { pokemon &&
+                    <div>
+                        <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
+                        <Heading mt={4} textAlign="left">{pokemon.name}</Heading>
+                        <p>Height: {pokemon.height}</p>
+                        <p>Weight: {pokemon.weight}</p>
+                        <p>Types: {pokemon.types.map(element => element.type.name)}</p>
+                    </div>
+                    }
+            </Flex>
+        </Flex>
+        <Flex alignItems="center" background="gray.800" justifyContent="center">
+            <Button onClick={() => handleChangePokemon()} textColor="gray.800" width="45vh" colorScheme="teal">Show random Pokemon</Button>
+        </Flex>
         </>
     )
 }

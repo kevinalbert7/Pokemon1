@@ -3,8 +3,7 @@ import React from 'react'
 import { useFormik } from "formik"
 import * as Yup from 'yup'
 
-import { ChakraProvider } from "@chakra-ui/react"
-import { Flex, Heading, Input, Button } from '@chakra-ui/layout';
+import { Flex, Heading, Input, Button } from '@chakra-ui/react';
 
 const Login = () => {
 
@@ -30,30 +29,34 @@ const Login = () => {
     })
     
     return (
-        <div>
-            <p>Login</p>
-            <form onSubmit={formik.handleSubmit}>
-                <input
-                    name="username"
-                    type="text"
-                    placeholder="Enter username"
-                    value={formik.values.username}
-                    onChange={formik.handleChange}
+        <Flex height="100vh" background="gray.800" alignItems="center" justifyContent="center">
+            <Flex direction="column" p={12}> 
+                <Heading mb={6}>username</Heading>
+                <Input 
+                name="username"
+                variant="filled" 
+                mb={3} 
+                type="text" 
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
                 />
-                {formik.errors.username && <p>{formik.errors.username}</p>}
-                <br />
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Enter your password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
+                <Heading mb={6}>password</Heading>
+                <Input 
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                variant="filled" 
+                mb={6} 
+                type="password" 
                 />
-                {formik.errors.password && <p>{formik.errors.password}</p>}
-                <br />
-                <button type="submit">Button</button>
-            </form>
-        </div>
+                <Button textColor="gray.800" colorScheme="teal">Button</Button>
+            </Flex>
+        </Flex>
     );
   }
   
@@ -61,13 +64,4 @@ const Login = () => {
     
   
   
-        // <ChakraProvider>
-        //     <Flex height="100vh" alignItems="center" just="center">
-        //         <Flex direction="column" background="gray.100" p={12} rounded={6}> 
-        //             <Heading mb={6}>LOGIN</Heading>
-        //             <Input placeholder="Enter your username" variant="filled" mb={3} type="text" />
-        //             <Input placeholder="Enter your password" variant="filled" mb={6} type="password" />
-        //             <Button colorScheme="teal">Button</Button>
-        //         </Flex>
-        //     </Flex>
-        // </ChakraProvider>
+  

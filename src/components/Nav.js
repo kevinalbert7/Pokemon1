@@ -1,24 +1,22 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import { Flex, Heading } from '@chakra-ui/react';
+
 class Nav extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <h1>Pokemon</h1>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">Login</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <>
+            <Flex height="10vh" textColor="white" background="gray.800" alignItems="center" justifyContent="right">
+                <Flex mr={8}>
+                  <Link to="/">Home</Link>
+                </Flex>
+                <Flex mr={8}>
+                  <Link to="/login">Login</Link>
+                </Flex>
+            </Flex>
+      </>
+ 
     )
   }
 }
