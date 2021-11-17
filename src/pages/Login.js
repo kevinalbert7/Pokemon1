@@ -1,46 +1,47 @@
 import React from 'react'
 
-// import { useFormik } from "formik"
-// import * as Yup from 'yup'
+import { useFormik } from "formik"
+import * as Yup from 'yup'
 
-// import { ChakraProvider } from "@chakra-ui/react"
-// import { Flex, Heading, Input, Button } from '@chakra-ui/layout';
+import { ChakraProvider } from "@chakra-ui/react"
+import { Flex, Heading, Input, Button } from '@chakra-ui/layout';
 
 const Login = () => {
 
-    // const formik = useFormik({
-    //     initialValues: {
-    //       userName: "",
-    //       password: ""
-    //     },
+    const formik = useFormik({
+        initialValues: {
+          username: "",
+          password: ""
+        },
 
-    //     onSubmit: values => {
-    //       console.log(values)
-    //     },
+        onSubmit: values => {
+          console.log(values)
+        },
 
-    //     validationSchema: Yup.object().shape({
-    //         userName: Yup.string()
-    //             .max(15, "username trop long")
-    //             .userName("username invalid")
-    //             .required("username est requis"),
-    //         password: Yup.string()
-    //             .min(6, "Password trop court")
-    //             .required("Password est requis")
-    //     }),
-    //     validateOnChange: false
-    // })
+        validationSchema: Yup.object().shape({
+            username: Yup.string()
+                .max(15, "username trop long")
+                .required("username est requis"),
+            password: Yup.string()
+                .min(6, "Password trop court")
+                .required("Password est requis")
+        }),
+        validateOnChange: false
+    })
     
     return (
         <div>
             <p>Login</p>
-            {/* <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit}>
                 <input
-                    name="userName"
-                    type="userName"
-                    placeholder="Enter your username"
-                    value={formik.values.userName}
+                    name="username"
+                    type="text"
+                    placeholder="Enter username"
+                    value={formik.values.username}
                     onChange={formik.handleChange}
                 />
+                {formik.errors.username && <p>{formik.errors.username}</p>}
+                <br />
                 <input
                     name="password"
                     type="password"
@@ -48,8 +49,10 @@ const Login = () => {
                     value={formik.values.password}
                     onChange={formik.handleChange}
                 />
+                {formik.errors.password && <p>{formik.errors.password}</p>}
+                <br />
                 <button type="submit">Button</button>
-            </form> */}
+            </form>
         </div>
     );
   }
