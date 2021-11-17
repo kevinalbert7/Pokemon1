@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+import Button from '../components/Button'
+
 const Home = () => {
     // console.log(useState)
     const [pokemon, setPokemon] = useState(null)
@@ -11,20 +13,36 @@ const Home = () => {
         .then(response => response.json())
         .then(data => setPokemon(data) )
     }, [])
+
+    const handleChangePokemon = () => {
+    const min = 1
+    const max = 151
+    const random = Math.floor(Math.random() * (max - min + 1) + min)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${random}`)
+            .then(response => response.json())
+            .then(data => { setPokemon(data) })
+    
+    }
     
     
     console.log(pokemon)
+    console.log(setPokemon)
 
-    if ( !pokemon ){
-        return (null)
-    }
+    
     return (
-        <div>
+        <>
             <p>HOME</p>
-           <p> {pokemon.name}</p>
-
-     
-        </div>
+            <Button handleClick={() => handleChangePokemon()}/>
+            { pokemon &&
+            <div>
+                <p>{pokemon.image}</p>
+                <p>{pokemon.name}</p>
+                <p>{pokemon.height}</p>
+                <p>{pokemon.weight}</p>
+                {/* <p>{pokemon.types}</p> */}
+            </div>
+            }
+        </>
     )
 }
 
