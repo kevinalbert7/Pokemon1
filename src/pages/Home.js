@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import Button from '../components/Button'
+// import Button from '../components/Button'
 
 const Home = () => {
     // console.log(useState)
@@ -24,7 +24,6 @@ const Home = () => {
     
     }
     
-    
     console.log(pokemon)
     console.log(setPokemon)
 
@@ -32,14 +31,14 @@ const Home = () => {
     return (
         <>
             <p>HOME</p>
-            <Button handleClick={() => handleChangePokemon()}/>
+            <button onClick={() => handleChangePokemon()}>Button</button>
             { pokemon &&
             <div>
-                <p>{pokemon.image}</p>
+                <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
                 <p>{pokemon.name}</p>
                 <p>{pokemon.height}</p>
                 <p>{pokemon.weight}</p>
-                {/* <p>{pokemon.types}</p> */}
+                <p>{pokemon.types.map(element => element.type.name)}</p>
             </div>
             }
         </>

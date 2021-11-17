@@ -1,16 +1,16 @@
-import React from 'react'
+// import React from 'react'
 
-function Button(props) {
+// function Button(props) {
 
-    const { handleChangePokemon } = props
+//     const { handleChangePokemon } = props
   
-    return (
-        <div>
-            <button onClick={handleChangePokemon}>
-                Change Pokemon
-            </button>
-        </div>
-    )
-}
+//     return (
+//         <div>
+//             <button onClick={handleChangePokemon}>
+//                 Change Pokemon
+//             </button>
+//         </div>
+//     )
+// }
 
-export default Button
+// export default Button
