@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex, Button } from '@chakra-ui/react';
 
 class Nav extends Component {
   render() {
@@ -9,10 +9,18 @@ class Nav extends Component {
       <>
             <Flex height="10vh" textColor="white" background="gray.800" alignItems="center" justifyContent="right">
                 <Flex mr={8}>
-                  <Link to="/">Home</Link>
+                  <Link to="/">
+                    <Button variant="ghost">
+                      Home
+                    </Button>
+                    </Link>
                 </Flex>
                 <Flex mr={8}>
-                  <Link to="/login">Login</Link>
+                  <Link to="/login">
+                    <Button variant="ghost">
+                      Login
+                    </Button>
+                  </Link>
                 </Flex>
             </Flex>
       </>

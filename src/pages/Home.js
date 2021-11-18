@@ -38,7 +38,12 @@ const Home = () => {
                         <Heading mt={4} textAlign="left">{pokemon.name}</Heading>
                         <p>Height: {pokemon.height}</p>
                         <p>Weight: {pokemon.weight}</p>
-                        <p>Types: {pokemon.types.map(element => element.type.name)}</p>
+                        <div>
+                            <h3 style={{fontWeight:"400"}}>Types:</h3> 
+                            <ul>{pokemon.types.map(element => 
+                                <li>{element.type.name}</li>)}
+                            </ul>
+                        </div>
                     </div>
                     }
             </Flex>
